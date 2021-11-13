@@ -1,0 +1,23 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<MovieProjectV2.Models.ApplicationUser> signInManager
+@if (signInManager.IsSignedIn(User))
+{
+    <form method="post" id="logoutForm" asp-action="Logoff" asp-controller="Account">
+        <div class="dropdown header__nav-item">
+            <a class="dropdown-toggle header__nav-link header__nav-link--more" href="#" role="button" id="dropdownMenuMore" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ti-user"></i></a>
+
+            <ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuMore">
+                <li style="color: white" class="text-white nav-link">Hello, @User.Identity.Name!</li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Đăng xuất</a></li>
+            </ul>
+        </div>
+    </form>
+    
+
+}
+else
+{
+    <a asp-controller="Account" asp-action="Login" class="header__sign-in">
+        <i class="icon ion-ios-log-in"></i>
+        <span>Đăng nhập</span>
+    </a>
+}

@@ -1,0 +1,56 @@
+﻿@model MovieProjectV2.Models.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<div class="sign section--bg" data-bg="img/section/section.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="sign__content">
+                    <!-- registration form -->
+                    <form method="post" asp-action="Register" asp-controller="Account" class="sign__form">
+                        <a href="index.html" class="sign__logo">
+                            <img src="~/img/logo.svg" alt="">
+                        </a>
+                        <div asp-validation-summary="All" class="text-danger"></div>
+
+                        <div class="sign__group">
+                            <input asp-for="Name" type="text" class="sign__input" placeholder="Name"> <br />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="sign__group">
+                            <input type="text" class="sign__input" asp-for="Email" placeholder="Email"> <br />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="sign__group">
+                            <input type="password" class="sign__input" asp-for="Password" placeholder="Password"> <br />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="sign__group">
+                            <input asp-for="ConfirmPassword" type="password" class="sign__input" placeholder="Confirm Password"> <br />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <div class="sign__group sign__group--checkbox">
+                            <input id="remember" name="remember" type="checkbox" checked="checked">
+                            <label for="remember">I agree to the <a href="#">Privacy Policy</a></label>
+                        </div>
+
+                        <button class="sign__btn" type="submit">Register</button>
+
+                        <span class="sign__text">Already have an account? <a asp-action="Login">Login!</a></span>
+                    </form>
+                    <!-- registration form -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{ 
+<partial name="_ValidationScriptsPartial" />
+}
